@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.amcjt.mybatis.mapper.CommentMapper">
+
+    <select id="find" resultType="Comment">
+        SELECT ec_id,ec_content,ec_create_time,ec_nick_name
+        FROM easybuy_comment
+        ORDER BY ec_id DESC
+        limit 0,5;
+    </select>
+
+    <insert id="insert" parameterType="Comment">
+        INSERT INTO easybuy_comment(ec_content,ec_create_time,ec_nick_name) VALUE (#{ec_content},#{ec_create_time},#{ec_nick_name});
+    </insert>
+</mapper>
